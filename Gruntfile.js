@@ -20,6 +20,32 @@ module.exports = function(grunt) {
           'styles/styles.css': 'styles/styles.scss'
         }
       }
+    },
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      less: {
+        files: [
+          './less/**/*.less',
+          './index.html'
+        ],
+        tasks: ['less']
+      }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          open: {
+            target: 'http://localhost:9001'
+          }
+        }
+      }
     }
-  })
+  });
+
+  grunt.registerTask('serve', ['less', 'connect', 'watch']);
 };

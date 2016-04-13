@@ -1,4 +1,4 @@
-.adsk-btn {
+.standard-button {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -10,14 +10,13 @@
   vertical-align: middle;
   padding: 0.85em 1em;
   margin: 0 1rem 1rem 0;
-  font-size: 0.9rem;
-  font-size: 1;
+  font-size: 0.7rem;
   background: #00558b;
   border-radius: 0;
   color: #fff;
 }
-.adsk-btn:hover,
-.adsk-btn:focus {
+.standard-button:hover,
+.standard-button:focus {
   background: #0084d7;
   color: auto;
 }
@@ -33,9 +32,8 @@
   vertical-align: middle;
   padding: 0.85em 1em;
   margin: 0 1rem 1rem 0;
-  font-size: 0.9rem;
   border-radius: 0;
-  font-size: 1;
+  font-size: 1rem;
   display: block;
   width: 100%;
   margin-left: 0;
@@ -61,8 +59,7 @@
   vertical-align: middle;
   padding: 0.85em 1em;
   margin: 0 1rem 1rem 0;
-  font-size: 0.9rem;
-  font-size: 1;
+  font-size: 1rem;
   background: #00558b;
   border-radius: 0;
   color: #fff;
@@ -78,4 +75,41 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 3px;
+}
+.standard-dropdown {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1;
+  font-style: normal;
+  display: inline-block;
+}
+.standard-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 1rem 0 2px 0;
+  list-style: none;
+  font-size: 1rem;
+  text-align: left;
+  background-clip: padding-box;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.standard-dropdown.open > .dropdown-menu,
+.standard-dropdown[open=true] > .dropdown-menu {
+  display: block;
+}
+.standard-dropdown.open > a,
+.standard-dropdown[open=true] > a {
+  outline: 0;
+}
+.standard-dropdown > .dropdown-trigger {
+  margin-bottom: 0;
 }

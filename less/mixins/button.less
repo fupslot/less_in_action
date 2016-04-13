@@ -1,7 +1,6 @@
 #adsk {
   @button-padding: 0.85em 1em;
   @button-margin: 0 @global-padding @global-padding 0;
-  @button-font-size: 0.9rem;
   @button-radius: 0;
   @button-color: auto;
   @button-background: @primary-color;
@@ -21,15 +20,14 @@
 
     padding: @button-padding;
     margin: @button-margin;
-    font-size: @button-font-size;
     border-radius: @button-radius;
   }
 
   .button-size(@size: medium, @expand: false) {
-    & when (@size = tiny) { font-size: 0.7; }
-    & when (@size = small) { font-size: 0.8; }
-    & when (@size = medium) { font-size: 1; }
-    & when (@size = large) { font-size: 1.3; }
+    & when (@size = tiny) { font-size: 0.7rem; }
+    & when (@size = small) { font-size: 0.8rem; }
+    & when (@size = medium) { font-size: 1rem; }
+    & when (@size = large) { font-size: 1.3rem; }
     & when (@expand = true) {
       .button-expand(true);
     }
