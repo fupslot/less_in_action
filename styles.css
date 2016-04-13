@@ -8,9 +8,9 @@
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease-out;
   vertical-align: middle;
-  padding: 0.85em 1em;
+  padding: 0.75em 1em;
   margin: 0 1rem 1rem 0;
-  font-size: 0.7rem;
+  font-size: 0.5em;
   background: #00558b;
   border-radius: 0;
   color: #fff;
@@ -30,10 +30,10 @@
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease-out;
   vertical-align: middle;
-  padding: 0.85em 1em;
+  padding: 0.75em 1em;
   margin: 0 1rem 1rem 0;
   border-radius: 0;
-  font-size: 1rem;
+  font-size: 1em;
   display: block;
   width: 100%;
   margin-left: 0;
@@ -57,9 +57,9 @@
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease-out;
   vertical-align: middle;
-  padding: 0.85em 1em;
+  padding: 0.75em 1em;
   margin: 0 1rem 1rem 0;
-  font-size: 1rem;
+  font-size: 1em;
   background: #00558b;
   border-radius: 0;
   color: #fff;
