@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           lineNumbers: true,
         },
         files: {
-          'styles/styles.css': 'styles/styles.scss'
+          './styles.css': 'sass/styles.scss'
         }
       }
     },
@@ -28,10 +28,17 @@ module.exports = function(grunt) {
       },
       less: {
         files: [
-          './less/**/*.less',
+          './less/**/*.*',
           './index.html'
         ],
         tasks: ['less']
+      },
+      sass: {
+        files: [
+          './sass/**/*.*',
+          './index.html'
+        ],
+        tasks: ['sass']
       }
     },
 
@@ -47,5 +54,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('serve', ['less', 'connect', 'watch']);
+  grunt.registerTask('serve', ['sass', 'connect', 'watch:sass']);
 };

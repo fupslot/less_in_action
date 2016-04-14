@@ -1,0 +1,31 @@
+$global-padding: 1rem;
+
+
+$global-font-size: 1rem;
+$global-font-weight: normal;
+
+// Colors
+$primary-color: #00558b;
+
+
+// Dark text
+$global-primary-text-color: rgba(0,0,0,0.87);
+$global-secondary-text-color: rgba(0,0,0,0.54);
+$global-disabled-text-color: rgba(0,0,0,0.38);
+
+// Light text
+$global-primary-text-color-light: #fff;
+$global-secondary-text-color-light: rgba(255,255,255,0.7);
+$global-disabled-text-color-light: rgba(255,255,255,0.5);
+$global-divider-text-color-light: rgba(255,255,255,0.12);
+
+
+// Menu
+
+$global-menu-indent: 1rem;
+$global-menu-border-radius: 4px;
+$global-menu-color: $global-secondary-text-color;
+$global-menu-color-hover: $global-primary-text-color;
+$global-menu-background: white;
+$global-menu-border-color: rgba(0,0,0,0.12);
+$global-menu-divider: rgba(0,0,0,0.12);

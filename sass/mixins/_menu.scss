@@ -1,0 +1,158 @@
+$menu-default-height: 160px;
+$menu-sizes: (
+  tiny: 0.7,
+  small: 0.8,
+  medium: 1,
+  large: 1.3,
+) !default;
+
+%menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+  min-width: $menu-default-height;
+  padding: 5px 0;
+  margin: $global-menu-indent 0 2px 0;
+  list-style: none;
+  font-size: $global-font-size;
+  font-weight: $global-font-weight;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin menu-style(
+  $border: $global-menu-border-color,
+  $color: auto,
+  $color-hover: auto,
+  $background: $global-menu-background,
+  $background-hover: auto,
+  $radius: $global-menu-border-radius,
+  $indent: $global-menu-indent,
+  $shadow: true,
+  $divider: $global-menu-divider
+) {
+  background-color: $background;
+  border: 1px solid $border;
+  border-radius: $radius;
+  margin-top: $indent;
+
+  @if $shadow == true {
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+
+  @if $color == auto {
+    $color: isitlight($background);
+  }
+
+  @if $color-hover == auto {
+    $color-hover: isitlight($color, #fff, #000);
+  }
+
+  @if $background-hover == auto {
+    $background-hover: isitlight($background, darken($background, 3%), darken($background, 3%));
+  }
+
+
+  // List menu
+
+  & > li > a {
+    display: block;
+    padding: 4px 20px;
+    clear: both;
+    line-height: 1;
+    color: $color;
+    white-space: nowrap;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $color-hover;
+      text-decoration: none;
+      background-color: $background-hover;
+    }
+  }
+
+  // List menu header
+
+  & > .menu-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 0.750em;
+    line-height: 1.5;
+    color: isitlight($background);
+    white-space: nowrap;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-bottom: 1px solid $divider;
+    margin-bottom: 9px;
+
+    &:not(:first-child) {
+      margin-top: 9px;
+      border-top: 1px solid $divider;
+    }
+  }
+
+  & > .divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: $divider;
+  }
+}
+
+@mixin menu-size($size: medium) {
+  font-size: $global-font-size * map-get($menu-sizes, $size);
+  min-width: $menu-default-height * map-get($menu-sizes, $size);
+  & > .divider {
+    margin: map-get($menu-sizes, $size) * 9px 0;
+  }
+}
+
+@mixin menu(
+  $border: $global-menu-border-color,
+  $color: auto,
+  // $color: $global-menu-color,
+  $color-hover: auto,
+  // $color-hover: $global-menu-color-hover,
+  $background: $global-menu-background,
+  $background-hover: auto,
+  $radius: $global-menu-border-radius,
+  $shadow: true,
+  $divider: $global-menu-divider,
+  $indent: $global-menu-indent,
+  $size: medium
+) {
+  @extend %menu;
+  @include menu-style(
+    $border,
+    $color,
+    $color-hover,
+    $background,
+    $background-hover,
+    $radius,
+    $indent,
+    $shadow,
+    $divider
+  );
+  @include menu-size($size);
+}
+
+
+// Menu
+
+
+.list-menu {
+  @include menu;
+  display: block;
+}
+
+.small-menu {
+  @include menu(
+    $size: small,
+    $indent: 0px,
+    $radius: 0px,
+    $background: red
+  );
+  display: block
+}

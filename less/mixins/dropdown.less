@@ -1,8 +1,4 @@
 #adsk {
-  @dropdown-menu-indent: 1rem;
-  @dropdown-menu-border-radius: 4px;
-  @dropdown-menu-background: white;
-  @dropdown-menu-border-color: gray;
 
   .dropdown-base() {
     position: relative;
@@ -12,61 +8,43 @@
     display: inline-block;
   }
 
-  .dropdown-menu(
-    @indent: @dropdown-menu-indent) {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1;
-      display: none; // none by default, but block on "open" of the menu
-      float: left;
-      min-width: 160px;
-      padding: 5px 0;
-      margin: @indent 0 2px 0; // override default ul
-      list-style: none;
-      font-size: 1rem;
-      text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-      background-clip: padding-box;
-  }
-
-
-  .dropdown-menu-style(
-    @border: @dropdown-menu-border-color,
-    @background: @dropdown-menu-background,
-    @radius: @dropdown-menu-border-radius,
-    @shadow: true) {
-      background-color: @background;
-      border: 1px solid @border;
-      border-radius: @radius;
-
-      & when (@shadow = true) {
-        box-shadow: 0 6px 12px rgba(0,0,0,.175);
-      }
-  }
-
   .dropdown(
-      @border: @dropdown-menu-border-color,
-      @background: @dropdown-menu-background,
-      @radius: @dropdown-menu-border-radius,
+      @border: @global-menu-border-color,
+      @color: @global-menu-color,
+      @color-hover: @global-menu-color-hover,
+      @background: @global-menu-background,
+      @background-hover: @global-menu-background-hover,
+      @radius: @global-menu-border-radius,
       @shadow: true,
-      @indent: @dropdown-menu-indent
+      @divider: @global-menu-divider,
+      @indent: @global-menu-indent,
+      @menu: ~".dropdown-menu",
+      @trigger: ~".dropdown-trigger"
     ) {
 
     .dropdown-base();
 
-    .dropdown-menu {
-      .dropdown-menu(@indent);
-      .dropdown-menu-style(@border, @background, @radius, @shadow);
+    & > @{menu} {
+      #adsk > .menu(
+        @border,
+        @color,
+        @color-hover,
+        @background,
+        @background-hover,
+        @radius,
+        @shadow,
+        @divider,
+        @indent);
     }
 
     // Open state for the dropdown
     &.open,
     &[open=true] {
-      & > .dropdown-menu { display: block; }
+      & > @{menu} { display: block; }
       & > a { outline: 0; }
     }
 
-    & > .dropdown-trigger {
+    & > @{trigger} {
       margin-bottom: 0;
     }
   }

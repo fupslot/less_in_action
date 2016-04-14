@@ -1,0 +1,51 @@
+%dropdown {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1;
+  font-style: $global-font-weight;
+  display: inline-block;
+}
+
+@mixin dropdown(
+    $position: left,
+    $position-shift: 0,
+    $menu: ".dropdown-menu",
+    $trigger: ".dropdown-trigger"
+) {
+
+  @extend %dropdown;
+
+  @if $position == right {
+    & > #{$menu} {
+      left: auto;
+      right: $position-shift + 0;
+    }
+  }
+  @else {
+    & > #{$menu} {
+      right: auto;
+      left: $position-shift + 0;
+    }
+  }
+
+  // Open state for the dropdown
+  &.open,
+  &[open=true] {
+    & > #{$menu} { display: block; }
+    & > a { outline: 0; }
+  }
+
+  & > #{$trigger} {
+    margin-bottom: 0;
+    outline: 0;
+  }
+}
+
+// Dropdown
+
+.dropdown {
+  @include dropdown(
+    $trigger: ".icon-btn",
+    $menu: "ul"
+  );
+}

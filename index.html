@@ -4,39 +4,103 @@
   <meta charset="UTF-8">
   <title>Less In Action</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+  <div class="vigor-example-content">
 
-  <section>
-    <h2>Button [experimental]</h2>
-    <hr>
-    <div>
-      <button class="wide-button">Expand Button!</button>
-    </div>
+    <section>
+      <h3>Button</h3>
+      <h4>Expand</h4>
 
-    <button class="icon-button">
-      <span class="icon">
-        <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0h24v24H0z" fill="none"/>
-          <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-        </svg>
-      </span>
-      Icon Button
-    </button>
-  </section>
+      <div class="example">
+        <button class="wide-button">Expand Button!</button>
+      </div>
+
+      <h4>Label + Icon</h4>
+      <div class="example">
+        <button class="icon-button">
+          <span class="icon">
+            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
+          </span>
+          Icon Button
+        </button>
+      </div>
+
+      <h4>Icon</h4>
+      <div class="example">
+        <button class="icon-btn">
+          <span class="icon">
+            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h3>ListMenu</h3>
+      <h4>Standard</h4>
+      <div class="example">
+        <div class="ex-menu-holder">
+
+          <ul class="list-menu">
+            <li><a href="#">Copy</a></li>
+            <li><a href="#">Cut</a></li>
+            <li><a href="#">Paste</a></li>
+          </ul>
+
+        </div>
+      </div>
+
+      <h4>Groups</h4>
+      <div class="example" style="min-height: 250px;">
+        <div class="ex-menu-holder">
+
+          <ul class="list-menu">
+            <li class="menu-header">folders</li>
+            <li><a href="#">Documents</a></li>
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Video</a></li>
+            <li class="menu-header">cloud</li>
+            <li><a href="#">Dropbox</a></li>
+            <li><a href="#">Box</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Dropdown</h3>
+      <h4>Standard</h4>
+      <div class="example">
+        <div class="dropdown" open="false">
+          <button class="icon-btn">
+            <span class="icon">
+              <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+              </svg>
+            </span>
+          </button>
+          <ul class="small-menu">
+            <li><a href="#">Copy</a></li>
+            <li><a href="#">Cut</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Paste</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
 
 
-  <section>
-    <h3>Dropdown [experimental]</h3>
-    <hr>
-    <h4>Standard</h4>
-    <hr>
-    <div class="standard-dropdown" open="true">
-      <button class="standard-button dropdown-trigger">Dropdown</button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Login</a></li>
-      </ul>
-    </div>
-  </section>
 </body>
 </html>

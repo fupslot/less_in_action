@@ -1,0 +1,148 @@
+$button-font-size: 1rem !default;
+$button-padding: 0.75em 1em;
+$button-margin: 0 $global-padding $global-padding 0;
+$button-radius: 0;
+$button-color: auto;
+$button-background: $primary-color;
+$button-background-hover: lighten($button-background, 15%);
+$button-opacity-disabled: 0.5;
+
+$button-sizes: (
+  tiny: 0.7,
+  small: 0.8,
+  medium: 1,
+  large: 1.3,
+) !default;
+
+%button {
+  display: inline-block;
+  border: 0;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s ease-out;
+  vertical-align: middle;
+  text-decoration: none;
+
+  padding: $button-padding;
+  margin: $button-margin;
+  font-size: $button-font-size;
+  font-weight: $global-font-weight;
+  border-radius: $button-radius;
+}
+
+@mixin button-size($size: medium, $expand: false) {
+  $size: $button-font-size * map-get($button-sizes, $size);
+  font-size: $size;
+
+  @if $expand {
+    @include button-expand;
+  }
+}
+
+@mixin button-expand($expand: true) {
+  @if $expand {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @else {
+    display: inline-block;
+    width: auto;
+    margin: $button-margin;
+  }
+}
+
+@mixin button-style(
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color,
+  $radius: $button-radius
+) {
+  @if ($color == auto) {
+    $color: isitlight($background);
+  }
+
+  background: $background;
+  border-radius: $radius;
+  color: $color;
+
+  &:hover,
+  &:focus {
+    background: $background-hover;
+    color: $color;
+  }
+}
+
+@mixin button-icon($icon: false, $position: left) {
+  $dir: (left: "right", right: "left");
+
+  @if ($icon == true) {
+    & > .icon {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      float: $position;
+      margin-#{map-get($dir, $position)}: 5px;
+    }
+  }
+}
+
+@mixin button-disabled() {
+  opacity: $button-opacity-disabled;
+  cursor: default;
+  pointer-events: none;
+}
+
+@mixin button(
+  $size: medium,
+  $expand: false,
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color,
+  $radius: $button-radius,
+  $icon: false,
+  $icon-position: left
+) {
+  @extend %button;
+  @include button-size($size, $expand);
+  @include button-style($background, $background-hover, $color, $radius);
+  @include button-icon($icon, $icon-position);
+}
+
+
+.standard-button {
+  @include button;
+}
+
+.wide-button {
+  @include button(
+    $expand: true,
+    $background: #E8F5E9,
+    $background-hover: #C8E6C9,
+    $radius: 4px
+  );
+}
+
+.icon-button {
+  @include button(
+    $icon: true,
+    $icon-position: right
+  );
+}
+
+.small-button {
+  @include button($size: small);
+}
+
+.icon-btn {
+  @include button(
+    $background: transparent,
+    $background-hover: transparent,
+    $icon: true
+  );
+}
