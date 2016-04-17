@@ -1,18 +1,20 @@
 {
-  "name": "less_in_action",
-  "version": "1.0.0",
+  "name": "vigor",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Eugene Brodsky <eugene@cooladata.com>",
+  "author": "Eugene Brodsky <fupslot@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^3.3.6",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-connect": "^3.2.2",
-    "gulp-sass": "^2.2.0"
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
   },
   "dependencies": {
     "foundation": "^4.2.1",

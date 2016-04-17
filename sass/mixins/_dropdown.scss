@@ -7,24 +7,24 @@
 }
 
 @mixin dropdown(
-    $position: left,
-    $position-shift: 0,
     $menu: ".dropdown-menu",
+    $menu-position: left,
+    $menu-position-shift: 0,
     $trigger: ".dropdown-trigger"
 ) {
 
   @extend %dropdown;
 
-  @if $position == right {
+  @if $menu-position == right {
     & > #{$menu} {
       left: auto;
-      right: $position-shift + 0;
+      right: $menu-position-shift + 0;
     }
   }
   @else {
     & > #{$menu} {
       right: auto;
-      left: $position-shift + 0;
+      left: $menu-position-shift + 0;
     }
   }
 

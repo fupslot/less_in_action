@@ -2,24 +2,39 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var open = require('gulp-open');
+var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
 
+// Autoprefixer options
+var autoprefixerOptions = {
+  browsers: ['last 2 versions']
+};
 
 gulp.task('sass', function () {
   return gulp.src('./sass/styles.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.*', ['sass']);
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('connect', function() {
   connect.server({
-    root: './',
+    root: ['./', './demo'],
     port: 9001,
     livereload: true
   });
+});
+
+gulp.task('html', function() {
+  gulp.src('./demo/*.html')
+    .pipe(connect.reload());
+});
+
+gulp.task('watch', function() {
+  gulp.watch(['./demo/*.html'], ['html']);
+  gulp.watch('./sass/**/*.*', ['sass']);
 });
 
 gulp.task('open', function() {
@@ -30,4 +45,4 @@ gulp.task('open', function() {
     .pipe(open(options));
 });
 
-gulp.task('serve', ['sass', 'connect', 'open', 'sass:watch']);
+gulp.task('serve', ['sass', 'connect', 'open', 'watch']);
