@@ -27,14 +27,14 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('html', function() {
+gulp.task('reload', function() {
   gulp.src('./demo/*.html')
     .pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./demo/*.html'], ['html']);
-  gulp.watch('./sass/**/*.*', ['sass']);
+  gulp.watch(['./demo/*.*'], ['reload']);
+  gulp.watch('./sass/**/*.*', ['sass', 'reload']);
 });
 
 gulp.task('open', function() {

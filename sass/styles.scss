@@ -13,7 +13,10 @@ $vigor-version: '0.0.1';
 // Global styles
 @import "global";
 
-
+// Mixis
 @import "mixins/buttons";
 @import "mixins/menu";
 @import "mixins/dropdown";
+@import "mixins/avatar";
+
+@import "types";

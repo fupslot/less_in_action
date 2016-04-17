@@ -1,3 +1,8 @@
+/// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
 /// Is It Light?
 /// Checks the lightness of $color, and if it passes the $threshold of lightness,
 /// it returns the `$yes` color. Otherwise, it returns the `$no` color.

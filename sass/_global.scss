@@ -1,3 +1,14 @@
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+// for compatibility with browser-based text zoom or user-set defaults.
+$base-font-size: 100% !default;
+
+// This is the default html and body font-size for the base em value.
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+// If you want your base font-size to be a different size and not have it effect grid size too,
+// set the value of $em-base to $base-font-size ($em-base: $base-font-size;)
+$em-base: 16px !default;
+
 $global-padding: 1rem;
 
 
@@ -7,6 +18,7 @@ $global-font-weight: normal;
 // Colors
 $primary-color: #00558b;
 
+// Text colors
 
 // Dark text
 $global-primary-text-color: rgba(0,0,0,0.87);
@@ -19,9 +31,7 @@ $global-secondary-text-color-light: rgba(255,255,255,0.7);
 $global-disabled-text-color-light: rgba(255,255,255,0.5);
 $global-divider-text-color-light: rgba(255,255,255,0.12);
 
-
 // Menu
-
 $global-menu-indent: 1rem;
 $global-menu-border-radius: 4px;
 $global-menu-color: $global-secondary-text-color;
@@ -29,3 +39,4 @@ $global-menu-color-hover: $global-primary-text-color;
 $global-menu-background: white;
 $global-menu-border-color: rgba(0,0,0,0.12);
 $global-menu-divider: rgba(0,0,0,0.12);
+

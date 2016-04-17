@@ -1,0 +1,54 @@
+$initials-border-color: $global-disabled-text-color;
+$initials-color: $global-secondary-text-color;
+
+$avatar-sizes: (
+  small: emCalc(24px),
+  medium: emCalc(32px),
+  large: emCalc(48px),
+) !default;
+
+%avatar {
+  border-radius: 50%;
+  text-align: center;
+  display: block;
+  background: lightgrey; // Todo: should be configurable
+  overflow: hidden;
+
+  abbr { border: 0; }
+}
+
+@mixin avatar-size($size: medium) {
+  $size: map-get($avatar-sizes, $size);
+  width: $size;
+  height: $size;
+  line-height: $size;
+  cursor: default;
+  color: $initials-color;
+  font-weight: normal;
+  &.small > abbr { font-size: $size / 2; }
+  &.large > abbr { font-size: $size / 2; }
+}
+
+@mixin avatar-border(
+  $color: $initials-border-color,
+  $size: 2px
+) {
+  // Note: border and adding expand avatar size
+  // Todo: Extract border and padding when border is set
+  border: $size solid $color;
+  background-clip: content-box;
+  padding: 1px;
+}
+
+@mixin avatar() {
+  @extend %avatar;
+}
+
+.avatar {
+  @include avatar();
+  @include avatar-size(medium);
+
+  &.small { @include avatar-size(small); }
+  &.large { @include avatar-size(large); }
+  &.bordered { @include avatar-border; }
+}

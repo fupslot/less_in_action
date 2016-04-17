@@ -1,3 +1,20 @@
+.ex-vigor-header {
+  background-color: #03A9F4;
+}
+
+.ex-vigor-header {
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
+.ex-vigor-content-holder {
+  position: fixed;
+  top: 11em;
+}
+
+.ex-vigor-header h1 { color: white; }
+.ex-vigor-header h6 {color: rgba(255,255,255, 0.7); }
+
 .vigor-example-content {
   width: 640px;
   margin: 0 auto;
