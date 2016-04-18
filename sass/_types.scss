@@ -1,6 +1,6 @@
 // We use these to control header font styles
 $header-font-family:                   "Open Sans", sans-serif !default;
-$header-font-weight:                   bold !default;
+$header-font-weight:                   normal !default;
 $header-font-style:                    normal !default;
 $header-font-color:                    #000 !default;
 $header-line-height:                   1.4 !default;
@@ -84,14 +84,6 @@ p {
   line-height: $paragraph-line-height;
   margin-bottom: $paragraph-margin-bottom;
   text-rendering: $paragraph-text-rendering;
-
-  &.lead { @extend %lead; }
-
-  & aside {
-    font-size: $paragraph-aside-font-size;
-    line-height: $paragraph-aside-line-height;
-    font-style: $paragraph-aside-font-style;
-  }
 }
 
 /* Default header styles */
@@ -112,10 +104,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-h1 { font-size: $h1-font-size - emCalc(10px); }
-h2 { font-size: $h2-font-size - emCalc(10px); }
-h3 { font-size: $h3-font-size - emCalc(5px); }
-h4 { font-size: $h4-font-size - emCalc(5px); }
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
 h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
 

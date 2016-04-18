@@ -1,5 +1,5 @@
-$initials-border-color: $global-disabled-text-color;
-$initials-color: $global-secondary-text-color;
+$avatar-border-color: $global-disabled-text-color;
+$avatar-color: $global-secondary-text-color;
 
 $avatar-sizes: (
   small: emCalc(24px),
@@ -21,16 +21,19 @@ $avatar-sizes: (
   $size: map-get($avatar-sizes, $size);
   width: $size;
   height: $size;
-  line-height: $size;
+  line-height: $size - .2em;
   cursor: default;
-  color: $initials-color;
+  color: $avatar-color;
   font-weight: normal;
-  &.small > abbr { font-size: $size / 2; }
-  &.large > abbr { font-size: $size / 2; }
+
+  & > abbr {
+    font-size: $size / 2;
+    line-height: 2em;
+  }
 }
 
 @mixin avatar-border(
-  $color: $initials-border-color,
+  $color: $avatar-border-color,
   $size: 2px
 ) {
   // Note: border and adding expand avatar size
@@ -38,17 +41,25 @@ $avatar-sizes: (
   border: $size solid $color;
   background-clip: content-box;
   padding: 1px;
+
+  & > img { border-radius: 50%; }
 }
 
-@mixin avatar() {
+@mixin avatar(
+  $size: medium,
+  $border-color: $avatar-border-color,
+  $border-size: 2px
+) {
   @extend %avatar;
-}
 
-.avatar {
-  @include avatar();
-  @include avatar-size(medium);
+  @include avatar-size($size);
 
   &.small { @include avatar-size(small); }
   &.large { @include avatar-size(large); }
-  &.bordered { @include avatar-border; }
+
+  &.bordered { @include avatar-border($border-color, $border-size); }
+}
+
+.avatar {
+  @include avatar;
 }
