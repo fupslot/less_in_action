@@ -7,11 +7,7 @@ $menu-sizes: (
 ) !default;
 
 %menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-  display: none;
+  display: block;
   min-width: $menu-default-height;
   padding: 5px 0;
   margin: $global-menu-indent 0 2px 0;
@@ -34,9 +30,12 @@ $menu-sizes: (
   $divider: $global-menu-divider
 ) {
   background-color: $background;
-  border: 1px solid $border;
   border-radius: $radius;
   margin-top: $indent;
+
+  @if (type-of($border) == color) {
+    border: 1px solid $border;
+  }
 
   @if $shadow == true {
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -55,43 +54,51 @@ $menu-sizes: (
   }
 
 
-  // List menu
-
+  // Menu
+  // Todo: Move to a mixin: menu-item
   & > li > a {
     display: block;
-    padding: 4px 20px;
+    padding: emCalc(6px) emCalc(20px);
     clear: both;
     line-height: 1;
     color: $color;
     white-space: nowrap;
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    svg {
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+      float: left;
+      margin-right: 5px;
+      fill: $color;
+    }
 
     &:hover,
     &:focus {
       color: $color-hover;
       text-decoration: none;
       background-color: $background-hover;
+
+      svg {
+        fill: $color-hover;
+      }
     }
   }
 
-  // List menu header
-
+  // Menu header
   & > .menu-header {
     display: block;
-    padding: 3px 20px;
+    padding: $global-padding emCalc(20px) emCalc(4px) emCalc(20px);
     font-size: 0.750em;
     line-height: 1.5;
     color: isitlight($background);
     white-space: nowrap;
     text-transform: uppercase;
     pointer-events: none;
-    border-bottom: 1px solid $divider;
     margin-bottom: 9px;
-
-    &:not(:first-child) {
-      margin-top: 9px;
-      border-top: 1px solid $divider;
-    }
   }
 
   & > .divider {
@@ -155,4 +162,13 @@ $menu-sizes: (
     $background: red
   );
   display: block
+}
+
+.vertical-list-menu {
+  @include menu(
+    $background: #fafafa,
+    $border: none,
+    $shadow: false,
+    $radius: none
+  );
 }

@@ -54,6 +54,12 @@ $avatar-sizes: (
 
   @include avatar-size($size);
 
+  &.disabled,
+  &[disabled=disabled] {
+    pointer-events: none;
+    cursor: default;
+  }
+
   &.small { @include avatar-size(small); }
   &.large { @include avatar-size(large); }
 

@@ -77,18 +77,15 @@ $button-sizes: (
   }
 }
 
-@mixin button-icon($icon: false, $position: left) {
+@mixin button-icon($position: left) {
   $dir: (left: "right", right: "left");
 
-  @if ($icon == true) {
-    & > .icon {
-      width: 1em;
-      height: 1em;
-      display: inline-block;
-      vertical-align: middle;
-      float: $position;
-      margin-#{map-get($dir, $position)}: 5px;
-    }
+  & > .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    float: $position;
+    margin-#{map-get($dir, $position)}: 5px;
   }
 }
 
@@ -111,7 +108,10 @@ $button-sizes: (
   @extend %button;
   @include button-size($size, $expand);
   @include button-style($background, $background-hover, $color, $radius);
-  @include button-icon($icon, $icon-position);
+
+  @if ($icon == true) {
+    @include button-icon($icon-position);
+  }
 }
 
 

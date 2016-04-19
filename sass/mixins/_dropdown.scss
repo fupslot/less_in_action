@@ -12,8 +12,16 @@
     $menu-position-shift: 0,
     $trigger: ".dropdown-trigger"
 ) {
-
   @extend %dropdown;
+
+  // Menu
+  #{$menu} {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    display: none;
+  }
 
   @if $menu-position == right {
     & > #{$menu} {
@@ -27,6 +35,7 @@
       left: $menu-position-shift + 0;
     }
   }
+
 
   // Open state for the dropdown
   &.open,
