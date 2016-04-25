@@ -7,9 +7,15 @@
   margin-bottom: 2em;
 }
 
-.ex-vigor-content-holder {
+.ex-vigor-content-menu-holder {
+  position: absolute;
+  width: 14em;
+  top: 13em;
+}
+
+.ex-vigor-content-menu-holder.stuck {
   position: fixed;
-  top: 11em;
+  top: 1em;
 }
 
 .ex-vigor-header > h1 { color: white; }
@@ -17,7 +23,7 @@
 
 .vigor-example-content {
   width: 960px;
-  margin: 0 auto;
+  margin: 0 auto 0 15em;
 }
 
 .vigor-example-content > h3 {

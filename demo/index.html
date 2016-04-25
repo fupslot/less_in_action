@@ -11,10 +11,16 @@
     <h1>Vigor</h1>
     <h6>Rich and powerful CSS toolbelt</h6>
   </header>
-  <div class="ex-vigor-content-holder">
-    <ul class="ex-vigor-content-menu">
-      <li><a href="#">Buttons</a></li>
-      <li><a href="#">List menu</a></li>
+
+  <div class="ex-vigor-content-menu-holder">
+    <ul class="ex-vigor-content-menu vertical-list-menu">
+    <li class="menu-header">Components</li>
+      <li><a href="#paragraph">Paragraph</a></li>
+      <li><a href="#avatar">Avatar</a></li>
+      <li><a href="#button">Buttons</a></li>
+      <li><a href="#list-menu">List menu</a></li>
+      <li><a href="#vertical-menu">Vertical List menu</a></li>
+      <li><a href="#dropdown">Dropdown</a></li>
     </ul>
   </div>
 
@@ -38,6 +44,7 @@
     </section>
 
     <section>
+      <a name="avatar">&nbsp;</a>
       <h3>Avatar</h3>
 
       <h4>Basic</h4>
@@ -70,6 +77,7 @@
     </section>
 
     <section>
+      <a name="button">&nbsp;</a>
       <h3>Button</h3>
       <h4>Expand</h4>
 
@@ -104,6 +112,7 @@
     </section>
 
     <section>
+      <a name="list-menu">&nbsp;</a>
       <h3>ListMenu</h3>
       <h4>Standard</h4>
       <div class="example">
@@ -114,18 +123,13 @@
         </ul>
       </div>
 
+      <a name="vertical-menu">&nbsp;</a>
       <h4>Vertical List Menu</h4>
       <div class="example">
         <ul class="vertical-list-menu">
           <li class="menu-header">Basic</li>
-          <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas minus, corrupti deleniti saepe perspiciatis nisi iure ipsa odio. Libero incidunt facere hic nesciunt, vel officiis fugit ab sed veniam ea, harum asperiores. Suscipit, odit. Dolorum natus quae atque doloribus ducimus animi, iusto nisi incidunt harum veniam molestiae deleniti sit vitae, tempore sed distinctio, quibusdam, debitis velit quos! Eum sit dicta nemo id quam quae assumenda, magni et reiciendis, neque magnam porro molestias vel nihil dolore commodi, beatae rem cupiditate quibusdam ab molestiae distinctio harum quaerat. Pariatur a, animi reprehenderit natus placeat, dolorum, sed dolor explicabo incidunt non, hic velit odit.</a></li>
-          <li><a href="#">
-            <svg class="icon" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-            </svg>
-            License
-          </a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">License</a></li>
           <li><a href="#">Support</a></li>
           <li class="menu-header">Getting started</li>
           <li><a href="#">Quick start</a></li>
@@ -152,6 +156,7 @@
     </section>
 
     <section>
+      <a name="dropdown">&nbsp;</a>
       <h3>Dropdown</h3>
       <h4>Standard</h4>
       <div class="example">
@@ -187,6 +192,8 @@
 
   </div>
 
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="demo/script/content_menu.js"></script>
 </body>
 </html>
