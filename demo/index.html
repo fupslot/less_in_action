@@ -54,7 +54,7 @@
         <div class="avatar large" style="float: left;"><img src="http://placekitten.com/g/200/200" title="kitten" alt="kitten"></div>
       </div>
 
-      <h4>Basic with border</h4>
+      <h4>Basic with the border</h4>
       <div class="example">
         <div class="avatar small bordered" style="float: left;"><img src="http://placekitten.com/g/200/200" title="kitten" alt="kitten"></div>
         <div class="avatar bordered" style="float: left;"><img src="http://placekitten.com/g/200/200" title="kitten" alt="kitten"></div>
@@ -68,7 +68,7 @@
         <div class="avatar large" style="float: left;"><abbr title="Eugene Brodsky">EB</abbr></div>
       </div>
 
-      <h4>Initials with border</h4>
+      <h4>Initials with then border</h4>
       <div class="example">
         <div class="avatar small bordered" style="float: left;"><abbr title="Eugene Brodsky">EB</abbr></div>
         <div class="avatar bordered" style="float: left;"><abbr title="Eugene Brodsky">EB</abbr></div>
@@ -79,36 +79,72 @@
     <section>
       <a name="button">&nbsp;</a>
       <h3>Button</h3>
-      <h4>Expand</h4>
 
+      <h4>Standard</h4>
       <div class="example">
-        <button class="wide-button">Expand Button!</button>
+        <p>
+          <button class="button button--large">Large button!</button>
+          <button class="button">Normal!</button>
+          <button class="button button--small">Small button!</button>
+          <button class="button button--tiny">Tiny button!</button>
+        </p>
+        <p>
+          <button class="button button--large">
+            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
+          </button>
+          <button class="button">
+            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
+          </button>
+          <button class="button button--small">
+            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
+          </button>
+          <button class="button button--tiny">
+            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
+          </button>
+        </p>
+      </div>
+
+      <h4>Expand</h4>
+      <div class="example">
+        <button class="button button--expand">Expand Button!</button>
       </div>
 
       <h4>Label + Icon</h4>
       <div class="example">
-        <button class="icon-button">
-          <span class="icon">
-            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-            </svg>
-          </span>
-          Icon Button
+        <button class="button button--icon__left">
+          <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+          </svg>
+          Upload
+        </button>
+        <button class="button button--icon__right">
+          <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+          </svg>
+          Upload
+        </button>
+        <button class="button">
+          <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+          </svg>
         </button>
       </div>
 
-      <h4>Icon</h4>
-      <div class="example">
-        <button class="icon-btn">
-          <span class="icon">
-            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-            </svg>
-          </span>
-        </button>
-      </div>
     </section>
 
     <section>
@@ -161,13 +197,11 @@
       <h4>Standard</h4>
       <div class="example">
         <div class="dropdown" open="true">
-          <button class="icon-btn">
-            <span class="icon">
-              <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-              </svg>
-            </span>
+          <button class="button">
+            <svg class="icon" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+            </svg>
           </button>
           <ul class="small-menu">
             <li><a href="#">

@@ -1,3 +1,6 @@
+$dropdown-menu-selector: ".dropdown-menu";
+$dropdown-trigger-selector: "button";
+
 %dropdown {
   position: relative;
   font-size: 1rem;
@@ -7,10 +10,10 @@
 }
 
 @mixin dropdown(
-    $menu: ".dropdown-menu",
+    $menu: $dropdown-menu-selector,
     $menu-position: left,
     $menu-position-shift: 0,
-    $trigger: ".dropdown-trigger"
+    $trigger: $dropdown-trigger-selector
 ) {
   @extend %dropdown;
 
@@ -53,8 +56,5 @@
 // Dropdown
 
 .dropdown {
-  @include dropdown(
-    $trigger: ".icon-btn",
-    $menu: "ul"
-  );
+  @include dropdown();
 }

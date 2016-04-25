@@ -70,6 +70,16 @@ $button-sizes: (
   border-radius: $radius;
   color: $color;
 
+  & > svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    color: $color;
+  }
+
+  & > svg { fill: $color; }
+
+  // ---
   &:hover,
   &:focus {
     background: $background-hover;
@@ -80,10 +90,7 @@ $button-sizes: (
 @mixin button-icon($position: left) {
   $dir: (left: "right", right: "left");
 
-  & > .icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
+  & svg {
     float: $position;
     margin-#{map-get($dir, $position)}: 5px;
   }
@@ -114,35 +121,16 @@ $button-sizes: (
   }
 }
 
+.button {
+  @include button();
 
-.standard-button {
-  @include button;
-}
+  &.button--large { @include button-size($size: large); }
+  &.button--small { @include button-size($size: small); }
+  &.button--tiny { @include button-size($size: tiny); }
 
-.wide-button {
-  @include button(
-    $expand: true,
-    $background: #E8F5E9,
-    $background-hover: #C8E6C9,
-    $radius: 4px
-  );
-}
+  &.button--icon,
+  &.button--icon__left { @include button-icon($position: left); }
+  &.button--icon__right { @include button-icon($position: right); }
 
-.icon-button {
-  @include button(
-    $icon: true,
-    $icon-position: right
-  );
-}
-
-.small-button {
-  @include button($size: small);
-}
-
-.icon-btn {
-  @include button(
-    $background: transparent,
-    $background-hover: transparent,
-    $icon: true
-  );
+  &.button--expand { @include button-expand(); }
 }
