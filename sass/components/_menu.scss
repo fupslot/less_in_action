@@ -58,7 +58,7 @@ $menu-sizes: (
   // Todo: Move to a mixin: menu-item
   & > li > a {
     display: block;
-    padding: emCalc(6px) emCalc(20px);
+    padding: emCalc(6px) 1em;
     clear: both;
     line-height: 1;
     color: $color;
@@ -72,7 +72,7 @@ $menu-sizes: (
       height: 1em;
       vertical-align: middle;
       float: left;
-      margin-right: 5px;
+      margin-right: 0.5em;
       fill: $color;
     }
 
@@ -147,7 +147,6 @@ $menu-sizes: (
 
 
 // Menu
-
 
 .list-menu {
   @include menu;

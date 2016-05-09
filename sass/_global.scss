@@ -14,10 +14,12 @@ $global-padding: 1rem;
 
 $global-font-size: 1rem;
 $global-font-weight: normal;
+$global-line-height: 1.2;
 
 // Colors
 $primary-color: #2196F3;
-
+$global-primary-color: $primary-color;
+$global-success-color: #4CAF50; // success color
 // Text colors
 
 // Dark text
@@ -40,3 +42,11 @@ $global-menu-background: white;
 $global-menu-border-color: rgba(0,0,0,0.12);
 $global-menu-divider: rgba(0,0,0,0.12);
 
+$global-dirs: (left:right, right:left);
+
+// We use this to do clear floats
+@mixin clearfix() {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}

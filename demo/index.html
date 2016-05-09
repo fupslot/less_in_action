@@ -224,6 +224,39 @@
       </div>
     </section>
 
+    <section>
+      <h3>Toolbar</h3>
+      <div class="example">
+        <nav class="toolbar toolbar--extend">
+          <button class="toolbar__button">Cut</button>
+          <button class="toolbar__button">Copy</button>
+          <button class="toolbar__button">Paste</button>
+          <div class="toolbar__dropdown">
+            <button class="toolbar__button toolbar__button--checked">
+              <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 10l5 5 5-5z"/>
+                  <path d="M0 0h24v24H0z" fill="none"/>
+              </svg>
+            </button>
+            <ul class="toolbar__menu">
+              <li><a href="javascript:void(0);">More options...</a></li>
+            </ul>
+          </div>
+          <div class="toolbar__group">
+            <button class="toolbar__button">A</button>
+            <button class="toolbar__button">B</button>
+            <button class="toolbar__button">C</button>
+            <div class="toolbar__dropdown open">
+              <button class="toolbar__button toolbar__button--checked">...</button>
+              <ul class="toolbar__menu">
+                <li><a href="javascript:void(0);">More options...</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
   </div>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>

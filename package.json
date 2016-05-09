@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "run": "gulp serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eugene Brodsky <fupslot@gmail.com>",
