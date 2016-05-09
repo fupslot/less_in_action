@@ -60,7 +60,7 @@ $menu-sizes: (
     display: block;
     padding: emCalc(6px) 1em;
     clear: both;
-    line-height: 1;
+    line-height: $global-line-height;
     color: $color;
     white-space: nowrap;
     text-decoration: none;
@@ -68,8 +68,8 @@ $menu-sizes: (
     text-overflow: ellipsis;
 
     svg {
-      width: 1em;
-      height: 1em;
+      width: 1.2em;
+      height: 1.2em;
       vertical-align: middle;
       float: left;
       margin-right: 0.5em;

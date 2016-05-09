@@ -17,8 +17,8 @@
 /// @return The $yes color or $no color.
 @function isitlight(
   $color,
-  $yes: $global-secondary-text-color,
-  $no: $global-primary-text-color-light,
+  $yes: $global-dark-text-color,
+  $no: $global-light-text-color,
   $threshold: 60%
 ) {
   @if (lightness($color) > $threshold) {

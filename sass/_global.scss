@@ -14,13 +14,18 @@ $global-padding: 1rem;
 
 $global-font-size: 1rem;
 $global-font-weight: normal;
-$global-line-height: 1.2;
+$global-line-height: 1.4;
 
 // Colors
-$primary-color: #2196F3;
+$primary-color: #2196f3;
 $global-primary-color: $primary-color;
-$global-success-color: #4CAF50; // success color
+$global-success-color: #4caf50; // success color
+$global-warning-color: #ff9800; // warning color
+$global-danger-color: #f44336; // danger color
 // Text colors
+
+$global-dark-text-color: #212121;
+$global-light-text-color: #fafafa;
 
 // Dark text
 $global-primary-text-color: rgba(0,0,0,0.87);
