@@ -1,4 +1,4 @@
-[[https://github.com/fupslot/vigor/blob/master/demo/logo.png]]
+![vigorTulz](https://raw.githubusercontent.com/fupslot/vigor/master/demo/logo.png)
 
 
 Run following command in your terminal to run develpment environment.
