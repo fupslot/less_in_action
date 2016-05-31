@@ -3,6 +3,7 @@ $button-padding: emCalc(6px) emCalc(12px);
 $button-margin: 0 $global-padding $global-padding 0;
 $button-radius: 4px;
 $button-color: auto;
+$button-line-height: 1.2;
 $button-background: $primary-color;
 $button-background-hover: lighten($button-background, 15%);
 $button-opacity-disabled: 0.5;
@@ -32,7 +33,7 @@ $button-sizes: (
   font-size: $button-font-size;
   font-weight: $global-font-weight;
   border-radius: $button-radius;
-  line-height: $global-line-height;
+  line-height: $button-line-height;
 }
 
 @mixin button-size($size: medium, $expand: false) {
@@ -65,6 +66,16 @@ $button-sizes: (
   $text-color-hover: auto,
   $radius: $button-radius
 ) {
+  $text-decoration: none;
+
+  // Button link style
+  @if ($color == transparent) {
+    $color-hover: $color;
+    $text-color: darken($primary-color, 15%);
+    $text-color-hover: $primary-color;
+    $text-decoration: underline;
+  }
+
   @if ($text-color == auto) {
     $text-color: isitlight($color);
   }
@@ -80,22 +91,22 @@ $button-sizes: (
   background: $color;
   border-radius: $radius;
   color: $text-color;
-  border-color: darken($color, 10%);
+  border-color: darken($color, 8%);
 
   & > svg {
     width: 1.2em;
     height: 1.2em;
     vertical-align: middle;
     color: $text-color;
+    fill: $text-color;
   }
-
-  & > svg { fill: $text-color; }
 
   // ---
   &:hover,
   &:focus {
     background: $color-hover;
     color: $text-color-hover;
+    text-decoration: $text-decoration;
   }
 
   &.button--checked {
@@ -159,6 +170,8 @@ $button-sizes: (
   &.button--warning { @include button-style($color: $global-warning-color); }
   &.button--danger { @include button-style($color: $global-danger-color); }
   &.button--white { @include button-style($color: white); }
+  &.button--link { @include button-style($color: transparent); }
+  // &.button--link { @include button-style-link($color: transparent); }
 
   &.button--expand { @include button-expand(); }
 }
