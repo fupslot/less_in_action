@@ -1,5 +1,5 @@
-$dropdown-menu-selector: ".dropdown-menu";
-$dropdown-trigger-selector: "button";
+$dropdown-menu-selector: "dropdown__menu";
+$dropdown-trigger-selector: "dropdown__trigger";
 
 %dropdown {
   position: relative;
@@ -18,38 +18,36 @@ $dropdown-trigger-selector: "button";
   @extend %dropdown;
 
   // Menu
-  #{$menu} {
+  .#{$menu} {
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 100;
     display: none;
+    // transition: all 0.3s ease-out;
   }
 
   @if $menu-position == right {
-    & > #{$menu} {
+    & > .#{$menu} {
       left: auto;
       right: $menu-position-shift + 0;
     }
   }
   @else {
-    & > #{$menu} {
+    & > .#{$menu} {
       right: auto;
       left: $menu-position-shift + 0;
     }
   }
 
+  &.dropdown--open > a { outline: 0; }
 
-  // Open state for the dropdown
-  &.open,
-  &[open=true] {
-    & > #{$menu} { display: block; }
-    & > a { outline: 0; }
-  }
+  // Open
+  .#{$menu}--open { display: block; }
 
-  & > #{$trigger} {
+  & > .#{$trigger} {
     margin-bottom: 0;
-    outline: 0;
+    // outline: 0; // ???
   }
 }
 

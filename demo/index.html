@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="demoApp">
 <head>
   <meta charset="UTF-8">
   <title>Less In Action</title>
@@ -214,15 +214,15 @@
       <h3>Dropdown</h3>
       <h4>Standard</h4>
       <div class="example">
-        <div class="dropdown" open="true">
-          <button class="button">
+        <div vg-dropdown class="dropdown">
+          <button class="button button--link dropdown__trigger">
             <svg class="icon" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
             </svg>
           </button>
-          <ul class="small-menu">
-            <li><a href="#">
+          <ul class="dropdown__menu">
+            <li><a href="javascript:void(0);">
             <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/>
@@ -230,7 +230,7 @@
             <span>Like</span>
             </a></li>
             <li class="divider"></li>
-            <li><a href="#">
+            <li><a href="javascript:void(0);">
               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0h24v24H0z" fill="none"/>
                 <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/>
@@ -277,8 +277,12 @@
 
   </div>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="demo/script/content_menu.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"></script>
+  <script type="text/javascript" src="/dist/vigor.js"></script>
+  <script type="text/javascript" src="demo/app.js"></script>
+  <script type="text/javascript" src="demo/script/content_menu.js"></script>
 </body>
 </html>

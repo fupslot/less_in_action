@@ -150,17 +150,6 @@ $menu-sizes: (
 
 .list-menu {
   @include menu;
-  display: block;
-}
-
-.small-menu {
-  @include menu(
-    $size: small,
-    $indent: 0px,
-    $radius: 0px,
-    $background: red
-  );
-  display: block
 }
 
 .vertical-list-menu {
@@ -170,4 +159,8 @@ $menu-sizes: (
     $shadow: false,
     $radius: none
   );
+}
+
+.dropdown__menu {
+  @include menu;
 }
