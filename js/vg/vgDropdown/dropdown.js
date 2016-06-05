@@ -1,48 +1,85 @@
   'use strict';
 
-  var vgDropdownDirective = ['$document', '$animate', function($document, $animate) {
+  // extend UIComponent
+  var vgDropdownComponent = function(params) {
+    params = params || {};
 
+    this._id = params.id;
+    this._name = params.name;
+    this._visibility = false;
+
+    // vg.UI.UIComponent.call(this);
+    // vg.Events.call(this);
+  }
+
+  // angular.extend(vgDropdownComponent.prototype, vg.Events);
+
+  vgDropdownComponent.prototype.getId = function() {
+    return this._id;
+  }
+
+  vgDropdownComponent.prototype.getName = function() {
+    return this._name;
+  };
+
+  vgDropdownComponent.prototype.getVisibility = function() {
+    return this._visibility;
+  };
+
+  vgDropdownComponent.prototype.setVisibility = function(value) {
+    this._visibility = !!value;
+  };
+
+  vgDropdownComponent.prototype.toggleVisibility = function() {
+    this._visibility = !this._visibility;
+  };
+
+  var vgDropdownController = function() {
+    this.component = new vgDropdownComponent({id: 'vg01', name: 'dropdown1'});
+  };
+
+
+  var vgDropdownDirective = ['$document', '$animate', function($document, $animate) {
     var VG_DROPDOWN_OPEN_CLASS = 'dropdown--open';
     var VG_MENU_OPEN_CLASS = 'dropdown__menu--open';
 
     return {
       restrict: 'A',
+      controller: vgDropdownController,
+      controllerAs: '$ctrl',
       link: function(scope, element, attr) {
         var triggerElement;
         var menuElement;
         var htmlElement = element[0];
-        var open = false;
+        var ctrl = scope.$ctrl;
 
         function triggerElementClickHandler(event) {
           event.stopPropagation();
-          open = (open === true ? hideMenu : showMenu)();
+          var toggleMenu = ctrl.component.getVisibility() ? hideMenu : showMenu;
+          ctrl.component.toggleVisibility();
+          toggleMenu();
           scope.$apply();
         }
 
         function showMenu() {
           $animate.addClass(element, VG_DROPDOWN_OPEN_CLASS);
           $animate.addClass(menuElement, VG_MENU_OPEN_CLASS);
-          // element.addClass(VG_DROPDOWN_OPEN_CLASS);
-          // menuElement.addClass(VG_MENU_OPEN_CLASS);
-          return true;
         }
 
         function hideMenu() {
           $animate.removeClass(element, VG_DROPDOWN_OPEN_CLASS);
           $animate.removeClass(menuElement, VG_MENU_OPEN_CLASS);
-          // element.removeClass(VG_DROPDOWN_OPEN_CLASS);
-          // menuElement.removeClass(VG_MENU_OPEN_CLASS);
-          return false;
         }
 
-        var triggerElement = angular.element(htmlElement.querySelector('.dropdown__trigger'));
-        var menuElement = angular.element(htmlElement.querySelector('.dropdown__menu'));
+        var triggerElement = htmlElement.querySelector('.dropdown__trigger');
+        var menuElement = htmlElement.querySelector('.dropdown__menu');
 
-        triggerElement.on('click', triggerElementClickHandler);
+        triggerElement.addEventListener('click', triggerElementClickHandler);
 
         $document.on('click', function() {
-          if (!open) return;
-          open = hideMenu();
+          if (!ctrl.component.getVisibility()) return;
+          ctrl.component.setVisibility(false);
+          hideMenu();
           scope.$apply();
         });
       }
